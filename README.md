@@ -21,7 +21,7 @@ Asset Store 등 외부 에셋(캐릭터·건물·동물 모델, 사운드, 애�
 | 네트워크 | Netcode for GameObjects 2.13 (Host + Client, 서버 권위) |
 | 입력 / UI | Input System 1.20, UI Toolkit (UXML · USS) |
 | 테스트 | Unity Test Framework (NUnit) EditMode |
-| 협업 도구 | Claude Code (계획 · 체크리스트 · 증거 기반 보고를 강제하는 하네스 방식) |
+| 협업 도구 | Claude Code (AI에게 계획과 체크리스트를 먼저 정해 주고, 실제로 검증한 결과만 보고하게 하는 방식) |
 
 ## 게임 소개
 
@@ -108,7 +108,7 @@ openspec/        변경 제안 · 설계 문서
 | [`rules.md`](rules.md) | 개발 · 검증 · Git 골든 규칙 26개 |
 | [`plan.md`](plan.md) · [`checklist.md`](checklist.md) | 단계별 목표와 실행 체크리스트 |
 | [`context-notes.md`](context-notes.md) | 결정, 결함 원인, 측정 기록 (1,300줄+) |
-| [`CLAUDE.md`](CLAUDE.md) · [`AGENTS.md`](AGENTS.md) | AI 협업 하네스 설정 |
+| [`CLAUDE.md`](CLAUDE.md) · [`AGENTS.md`](AGENTS.md) | AI가 작업 전에 읽는 규칙 · 작업 방식 안내 |
 
 ## 참고
 
