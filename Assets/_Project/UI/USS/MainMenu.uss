@@ -1,0 +1,85 @@
+/* 메인 메뉴 화면. 색 변수와 버튼 모양은 Hud.uss를 따른다. */
+.menu-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+}
+
+.menu-stripe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 46%;
+    background-color: rgba(2, 8, 12, 0.66);
+    border-right-width: 1px;
+    border-right-color: var(--hud-edge);
+}
+
+.menu-column {
+    width: 380px;
+    margin-left: 9%;
+}
+
+.menu-title {
+    color: var(--hud-ink);
+    font-size: 64px;
+    -unity-font-style: bold;
+    letter-spacing: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.menu-tagline {
+    color: var(--hud-muted);
+    font-size: 15px;
+    margin-bottom: 34px;
+}
+
+.menu-button {
+    height: 46px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.menu-button:disabled {
+    color: rgba(122, 196, 216, 0.4);
+    border-color: rgba(103, 178, 199, 0.2);
+}
+
+.menu-version {
+    position: absolute;
+    right: 18px;
+    bottom: 12px;
+    color: var(--hud-muted);
+    font-size: 12px;
+}
+
+.menu-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 8px;
+    background-image: url('project://database/Assets/_Project/UI/Icons/Logo_ZGV.png');
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.slot-button {
+    height: 62px;
+    -unity-text-align: middle-left;
+    padding-left: 16px;
+    white-space: normal;
+    font-size: 15px;
+}
+
+.slot-button:disabled {
+    color: rgba(122, 196, 216, 0.4);
+    border-color: rgba(103, 178, 199, 0.2);
+}
+
+.slot-button-armed {
+    border-color: rgb(255, 110, 110);
+    background-color: rgba(190, 50, 60, 0.35);
+}

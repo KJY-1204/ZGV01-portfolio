@@ -1,0 +1,72 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="pause-panel" class="pause-panel">
+        <ui:VisualElement name="pause-window" class="pause-window">
+            <ui:Label text="PAUSED  /  일시정지" class="section-kicker" />
+            <ui:Label name="pause-title" text="일시정지" class="pause-title" />
+
+            <ui:VisualElement name="pause-main" class="pause-main">
+                <ui:Button name="pause-resume" text="계속하기" class="pause-button" />
+                <ui:Button name="pause-options" text="옵션" class="pause-button" />
+                <ui:Button name="pause-save" text="저장" class="pause-button" />
+                <ui:Button name="pause-load" text="불러오기" class="pause-button" />
+                <ui:Button name="pause-menu" text="메인 메뉴" class="pause-button" />
+        <ui:Button name="pause-quit" text="게임 종료" class="pause-button pause-button-danger" />
+                <ui:Label name="pause-note" text="" class="pause-note" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="options-view" class="options-view">
+                <ui:VisualElement class="options-tabs">
+                    <ui:Button name="tab-audio" text="소리" class="options-tab" />
+                    <ui:Button name="tab-display" text="화면" class="options-tab" />
+                    <ui:Button name="tab-controls" text="조작" class="options-tab" />
+                    <ui:Button name="tab-keys" text="키 설정" class="options-tab" />
+                    <ui:Button name="tab-hud" text="HUD" class="options-tab" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="options-audio" class="options-page">
+                    <ui:Slider name="opt-master" label="마스터 음량" low-value="0" high-value="100" show-input-field="true" class="options-row" />
+                    <ui:Slider name="opt-effects" label="효과음(총, 충격)" low-value="0" high-value="100" show-input-field="true" class="options-row" />
+                    <ui:Slider name="opt-voices" label="목소리(좀비, 동물)" low-value="0" high-value="100" show-input-field="true" class="options-row" />
+                    <ui:Slider name="opt-footsteps" label="발소리" low-value="0" high-value="100" show-input-field="true" class="options-row" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="options-display" class="options-page">
+                    <ui:DropdownField name="opt-graphics" label="그래픽 품질" class="options-row" />
+                    <ui:DropdownField name="opt-resolution" label="해상도" class="options-row" />
+                    <ui:DropdownField name="opt-window" label="화면 모드" class="options-row" />
+                    <ui:Toggle name="opt-vsync" label="수직 동기화" class="options-row" />
+                    <ui:Slider name="opt-fov" label="시야각(%)" low-value="80" high-value="130" show-input-field="true" class="options-row" />
+                    <ui:Slider name="opt-ui-scale" label="UI 크기(%)" low-value="70" high-value="150" show-input-field="true" class="options-row" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="options-controls" class="options-page">
+                    <ui:Slider name="opt-sensitivity-x" label="좌우 감도" low-value="20" high-value="300" show-input-field="true" class="options-row" />
+                    <ui:Slider name="opt-sensitivity-y" label="상하 감도" low-value="20" high-value="300" show-input-field="true" class="options-row" />
+                    <ui:Toggle name="opt-invert" label="상하 반전" class="options-row" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="options-keys" class="options-page">
+                    <ui:Label name="keys-hint" text="키를 누르면 바꿀 수 있습니다. 같은 범위에서 겹치면 서로 바뀝니다." class="keys-hint" />
+                    <ui:ScrollView name="keys-list" class="keys-list" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="options-hud" class="options-page">
+                    <ui:Toggle name="opt-hud-compass" label="나침반" class="options-row" />
+                    <ui:Toggle name="opt-hud-clock" label="시계" class="options-row" />
+                    <ui:Toggle name="opt-hud-survival" label="생존 상태(체력, 허기, 갈증)" class="options-row" />
+                    <ui:Toggle name="opt-hud-reticle" label="조준점" class="options-row" />
+                    <ui:Toggle name="opt-hud-ammo" label="탄약 표시" class="options-row" />
+                    <ui:Toggle name="opt-hud-prompt" label="상호작용 안내" class="options-row" />
+                    <ui:Toggle name="opt-hud-pickup" label="획득 알림" class="options-row" />
+                    <ui:Toggle name="opt-hud-notices" label="구조물, 건축 알림" class="options-row" />
+                    <ui:Toggle name="opt-hud-hints" label="조작 안내" class="options-row" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="options-footer">
+                    <ui:Button name="opt-reset" text="기본값으로" class="pause-button pause-button-small" />
+                    <ui:Button name="opt-back" text="뒤로" class="pause-button pause-button-small" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

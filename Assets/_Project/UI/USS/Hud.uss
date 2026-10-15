@@ -1,0 +1,1521 @@
+.hud-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+:root {
+    --hud-ink: rgb(196, 244, 255);
+    --hud-muted: rgb(122, 196, 216);
+    --hud-surface: rgba(3, 16, 22, 0.55);
+    --hud-surface-soft: rgba(4, 20, 26, 0.64);
+    --hud-edge: rgba(70, 220, 255, 0.4);
+    --hud-accent: rgb(80, 235, 255);
+    --hud-warm: rgb(255, 90, 200);
+}
+
+/* 원형 아이콘 배지 안의 기호는 박스 전체를 차지한 뒤 중앙 정렬해 도형 중심에 오게 한다 */
+.survivor-emblem-text,
+.mission-marker-text,
+.objective-icon-text {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    -unity-text-align: middle-center;
+}
+
+.hud-panel-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.hud-corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--hud-accent);
+}
+
+.hud-corner-tl {
+    left: 0;
+    top: 0;
+    border-left-width: 2px;
+    border-top-width: 2px;
+}
+
+.hud-corner-tr {
+    right: 0;
+    top: 0;
+    border-right-width: 2px;
+    border-top-width: 2px;
+}
+
+.hud-corner-bl {
+    left: 0;
+    bottom: 0;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+}
+
+.hud-corner-br {
+    right: 0;
+    bottom: 0;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+}
+
+.hud-corner-warm {
+    border-color: var(--hud-warm);
+}
+
+.compass-bar {
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    width: 320px;
+    height: 20px;
+    margin-left: -160px;
+    overflow: hidden;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(120, 235, 255, 0.42);
+}
+
+.compass-viewport {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.compass-strip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.compass-tick {
+    position: absolute;
+    top: 12px;
+    width: 1px;
+    height: 5px;
+    background-color: rgba(120, 235, 255, 0.55);
+}
+
+.compass-tick-major {
+    top: 8px;
+    height: 9px;
+    background-color: rgba(196, 244, 255, 0.86);
+}
+
+.compass-label {
+    position: absolute;
+    top: 0;
+    color: var(--hud-ink);
+    font-size: 12px;
+    -unity-font-style: bold;
+}
+
+.compass-label-muted {
+    color: var(--hud-muted);
+}
+
+.compass-label-north {
+    color: var(--hud-warm);
+}
+
+/* 나침반 위의 위치 마커(시체 가방 등). 마름모와 거리 글자로 이루어진다. */
+.compass-marker {
+    position: absolute;
+    top: 3px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.compass-marker-diamond {
+    width: 8px;
+    height: 8px;
+    rotate: 45deg;
+    background-color: rgb(255, 210, 64);
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.7);
+}
+
+.compass-marker-text {
+    margin-left: 3px;
+    color: var(--hud-ink);
+    font-size: 11px;
+    -unity-font-style: bold;
+}
+
+.compass-marker-urgent .compass-marker-text {
+    color: rgb(255, 130, 120);
+}
+
+.compass-pointer {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 14px;
+    margin-left: -1px;
+    background-color: var(--hud-warm);
+}
+
+.mission-banner {
+    position: absolute;
+    left: 50%;
+    top: 32px;
+    width: 380px;
+    margin-left: -190px;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 12px;
+    background-color: var(--hud-surface-soft);
+    border-width: 1px;
+    border-color: rgba(80, 235, 255, 0.46);
+    border-radius: 3px;
+}
+
+.mission-marker {
+    width: 23px;
+    height: 23px;
+    margin-right: 8px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(80, 235, 255, 0.18);
+    border-width: 1px;
+    border-color: var(--hud-accent);
+    border-radius: 50%;
+}
+
+.mission-marker-text {
+    color: var(--hud-accent);
+    font-size: 16px;
+    -unity-font-style: bold;
+}
+
+.mission-codename {
+    color: var(--hud-accent);
+    font-size: 10px;
+    -unity-font-style: bold;
+    letter-spacing: 1.2px;
+    margin-bottom: 1px;
+}
+
+.mission-copy {
+    flex-grow: 1;
+}
+
+.mission-title {
+    color: var(--hud-ink);
+    font-size: 17px;
+    -unity-font-style: bold;
+}
+
+.mission-subtitle {
+    color: var(--hud-muted);
+    font-size: 13px;
+}
+
+.survivor-panel {
+    position: absolute;
+    left: 22px;
+    top: 25px;
+    width: 204px;
+}
+
+.section-kicker {
+    color: var(--hud-muted);
+    font-size: 13px;
+    -unity-font-style: bold;
+    letter-spacing: 1.4px;
+}
+
+.survivor-card {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 7px;
+    padding: 7px;
+    background-color: var(--hud-surface);
+    border-width: 1px;
+    border-color: var(--hud-edge);
+    border-radius: 3px;
+}
+
+.survivor-emblem {
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(8, 45, 55);
+    border-radius: 22px;
+    border-width: 2px;
+    border-color: var(--hud-accent);
+}
+
+.survivor-emblem-text {
+    color: var(--hud-ink);
+    font-size: 23px;
+    -unity-font-style: bold;
+}
+
+.survivor-details {
+    flex-grow: 1;
+}
+
+.survivor-name-row,
+.health-readout-row,
+.utility-heading,
+.objective-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.survivor-name {
+    color: var(--hud-ink);
+    font-size: 17px;
+    -unity-font-style: bold;
+}
+
+.solo-badge,
+.keycap {
+    color: var(--hud-accent);
+    font-size: 12px;
+    -unity-font-style: bold;
+    padding: 2px 5px;
+    background-color: rgba(80, 235, 255, 0.14);
+    border-width: 1px;
+    border-color: rgba(80, 235, 255, 0.48);
+}
+
+.health-progress {
+    height: 8px;
+    margin-top: 6px;
+    justify-content: flex-start;
+    overflow: hidden;
+    background-color: rgba(2, 6, 9, 0.82);
+    border-width: 1px;
+    border-color: rgba(70, 220, 255, 0.36);
+    border-radius: 4px;
+}
+
+.health-progress-fill {
+    width: 100%;
+    height: 100%;
+    background-color: var(--hud-accent);
+    border-radius: 4px;
+}
+
+.health-readout-row {
+    margin-top: 4px;
+}
+
+.health-caption {
+    color: var(--hud-muted);
+    font-size: 13px;
+}
+
+.health-label {
+    color: var(--hud-ink);
+    font-size: 14px;
+    -unity-font-style: bold;
+}
+
+.stat-row {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.stat-caption {
+    width: 34px;
+    color: var(--hud-muted);
+    font-size: 12px;
+}
+
+.stat-track {
+    flex-grow: 1;
+    height: 6px;
+    overflow: hidden;
+    background-color: rgba(2, 6, 9, 0.82);
+    border-width: 1px;
+    border-color: rgba(70, 220, 255, 0.28);
+    border-radius: 3px;
+}
+
+.stat-fill {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.stat-fill-hunger {
+    background-color: rgb(255, 176, 74);
+}
+
+.stat-fill-thirst {
+    background-color: rgb(92, 170, 255);
+}
+
+/* 수치가 낮을 때 붉게 바꿔 경고한다 */
+.stat-fill-low {
+    background-color: rgb(255, 70, 90);
+}
+
+.interact-prompt-row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 190px;
+    flex-direction: row;
+    justify-content: center;
+    display: none;
+}
+
+.interact-prompt {
+    padding: 6px 16px;
+    color: rgb(255, 232, 130);
+    font-size: 20px;
+    -unity-font-style: bold;
+    background-color: rgba(3, 16, 22, 0.72);
+    border-width: 1px;
+    border-color: rgba(255, 215, 80, 0.7);
+    border-radius: 4px;
+}
+
+/* 나침반 오른쪽 옆의 게임 시각 표시. 밤에는 붉게 바뀐다. */
+.clock-label {
+    position: absolute;
+    right: 22px;
+    top: 14px;
+    padding: 1px 6px;
+    color: var(--hud-ink);
+    font-size: 13px;
+    -unity-font-style: bold;
+    background-color: var(--hud-surface);
+    border-width: 1px;
+    border-color: var(--hud-edge);
+    border-radius: 3px;
+}
+
+.clock-label-night {
+    color: rgb(255, 140, 130);
+    border-color: rgba(255, 90, 80, 0.7);
+}
+
+/* 피해 입은 건축물 위에 월드 좌표를 따라 뜨는 작은 체력 막대(코드가 위치를 매 프레임 옮긴다). */
+.world-bars {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.world-bar {
+    position: absolute;
+    width: 52px;
+    height: 7px;
+    padding: 1px;
+    background-color: rgba(3, 16, 22, 0.78);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.55);
+    border-radius: 2px;
+}
+
+.world-bar-fill {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(110, 220, 130);
+    border-radius: 1px;
+}
+
+/* 조준한 건축물의 이름과 체력 막대, 수리 안내. 피해를 입은 건축물(또는 건축 모드)을 조준하면 조준점 아래에 뜬다. */
+.struct-info-row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 310px;
+    flex-direction: row;
+    justify-content: center;
+    display: none;
+}
+
+.struct-info {
+    min-width: 220px;
+    padding: 6px 14px 8px;
+    align-items: center;
+    background-color: rgba(3, 16, 22, 0.72);
+    border-width: 1px;
+    border-color: rgba(120, 220, 255, 0.5);
+    border-radius: 4px;
+}
+
+.struct-info-title {
+    color: var(--hud-ink);
+    font-size: 15px;
+    -unity-font-style: bold;
+}
+
+.struct-bar {
+    width: 200px;
+    height: 8px;
+    margin-top: 4px;
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 2px;
+}
+
+.struct-bar-fill {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(110, 220, 130);
+    border-radius: 2px;
+}
+
+.struct-info-hint {
+    margin-top: 4px;
+    color: rgb(255, 232, 130);
+    font-size: 12px;
+}
+
+/* 죽었을 때 화면 중앙 위쪽에 뜨는 안내. */
+.death-banner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 28%;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+.death-banner-hint {
+    margin-top: 10px;
+    padding: 6px 20px;
+    color: rgb(255, 232, 130);
+    font-size: 20px;
+    -unity-font-style: bold;
+    background-color: rgba(3, 16, 22, 0.72);
+    border-radius: 4px;
+}
+
+.death-banner-text {
+    padding: 14px 48px;
+    color: rgb(255, 120, 110);
+    font-size: 40px;
+    -unity-font-style: bold;
+    background-color: rgba(20, 3, 3, 0.78);
+    border-width: 1px;
+    border-color: rgba(255, 90, 80, 0.8);
+    border-radius: 4px;
+}
+
+/* 건축 설치가 거부됐을 때 조준점 아래에 잠깐 뜨는 안내. */
+.build-notice-row {
+    position: absolute;
+    right: 28px;
+    bottom: 82px;
+    width: 400px;
+    flex-direction: row;
+    justify-content: flex-end;
+    display: none;
+}
+
+.build-notice {
+    padding: 6px 16px;
+    color: rgb(255, 140, 130);
+    font-size: 18px;
+    -unity-font-style: bold;
+    background-color: rgba(3, 16, 22, 0.72);
+    border-width: 1px;
+    border-color: rgba(255, 90, 80, 0.7);
+    border-radius: 4px;
+    white-space: normal;
+    -unity-text-align: middle-right;
+}
+
+/* 제작 완료처럼 성공을 알리는 알림이다. 오류 알림(붉은색)과 구분한다. */
+.build-notice-success {
+    color: rgb(150, 240, 175);
+    border-color: rgba(110, 230, 150, 0.7);
+}
+
+.stat-value {
+    width: 30px;
+    margin-left: 6px;
+    -unity-text-align: middle-right;
+    color: var(--hud-ink);
+    font-size: 12px;
+}
+
+.objective-panel {
+    position: absolute;
+    right: 22px;
+    top: 25px;
+    width: 286px;
+    padding: 0 9px 6px;
+    background-color: var(--hud-surface);
+    border-width: 1px;
+    border-color: rgba(255, 90, 200, 0.32);
+    border-radius: 3px;
+}
+
+.objective-band {
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0 6px;
+    padding: 4px 8px;
+    align-self: flex-start;
+    background-color: var(--hud-warm);
+    border-radius: 8px 3px 8px 3px;
+}
+
+.objective-band-title {
+    color: rgb(35, 8, 26);
+    font-size: 11px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+}
+
+.objective-band-subtitle {
+    color: rgba(35, 8, 26, 0.74);
+    font-size: 10px;
+    margin-left: 7px;
+}
+
+.objective-band-mark {
+    width: 5px;
+    height: 5px;
+    margin-right: 5px;
+    background-color: rgb(49, 12, 36);
+    border-radius: 3px;
+}
+
+.objective-title,
+.utility-title {
+    color: var(--hud-ink);
+    font-size: 16px;
+    -unity-font-style: bold;
+}
+
+.objective-state {
+    color: var(--hud-warm);
+    font-size: 13px;
+    padding: 3px 6px;
+    background-color: rgba(255, 90, 200, 0.14);
+    border-width: 1px;
+    border-color: rgba(255, 90, 200, 0.34);
+    border-radius: 9px;
+}
+
+.objective-entry {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top-width: 1px;
+    border-top-color: rgba(70, 220, 255, 0.22);
+}
+
+.objective-entry-active {
+    background-color: rgba(255, 90, 200, 0.1);
+    border-top-color: rgba(255, 90, 200, 0.42);
+}
+
+.objective-icon {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    margin-right: 6px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(70, 220, 255, 0.16);
+    border-width: 1px;
+    border-color: rgba(70, 220, 255, 0.38);
+    border-radius: 50%;
+}
+
+.objective-icon-warm {
+    background-color: rgba(255, 90, 200, 0.18);
+    border-color: rgba(255, 90, 200, 0.62);
+}
+
+.objective-icon-green {
+    background-color: rgba(80, 235, 255, 0.14);
+    border-color: rgba(80, 235, 255, 0.42);
+}
+
+.objective-icon-text {
+    color: var(--hud-muted);
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.objective-icon-warm > .objective-icon-text {
+    color: var(--hud-warm);
+}
+
+.objective-icon-green > .objective-icon-text {
+    color: var(--hud-accent);
+}
+
+.objective-copy {
+    flex-grow: 1;
+}
+
+.objective-name {
+    color: var(--hud-ink);
+    font-size: 13px;
+    -unity-font-style: bold;
+}
+
+.objective-description {
+    color: var(--hud-muted);
+    font-size: 11px;
+    white-space: normal;
+}
+
+.objective-progress-track {
+    height: 3px;
+    margin-top: 5px;
+    background-color: rgba(103, 178, 199, 0.2);
+    border-radius: 2px;
+}
+
+.objective-progress-fill {
+    width: 34%;
+    height: 3px;
+}
+
+.objective-progress-fill-warm {
+    background-color: var(--hud-warm);
+    border-radius: 2px;
+}
+
+.objective-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 6px -9px 0;
+    padding: 4px 9px 0;
+    border-top-width: 1px;
+    border-top-color: rgba(70, 220, 255, 0.24);
+}
+
+.objective-footer-label,
+.objective-footer-count {
+    color: var(--hud-muted);
+    font-size: 11px;
+}
+
+/* 크기는 각 패널을 쓰는 쪽(.center-panel)이 정하고, 여기서는 공통 배경/테두리만 담당한다. */
+.utility-panel {
+    position: absolute;
+    padding: 12px;
+    background-color: rgba(2, 12, 16, 0.92);
+    border-width: 1px;
+    border-color: var(--hud-edge);
+    border-top-width: 2px;
+    border-top-color: var(--hud-accent);
+    border-radius: 3px;
+}
+
+/* 인벤토리/제작/건축 세 패널을 화면 중앙에 큼직하게 띄운다(요청: 중앙 배치 + 확대).
+   내용이 적을 때도 항상 중앙에 오도록 max-height가 아니라 고정 height를 쓴다
+   (아이템이 넘치면 내부 ScrollView가 스크롤을 처리한다). */
+.center-panel {
+    left: 50%;
+    top: 50%;
+    width: 680px;
+    height: 520px;
+    margin-left: -340px;
+    margin-top: -260px;
+}
+
+.utility-heading {
+    margin-bottom: 8px;
+}
+
+.grid-scroll {
+    flex-grow: 1;
+    margin-top: 4px;
+}
+
+/* 보관함 패널: 위(보관함)와 아래(내 인벤토리) 두 목록이 높이를 나눠 쓴다. */
+.storage-panel {
+    height: 620px;
+    margin-top: -310px;
+}
+
+.storage-take-all {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.storage-scroll {
+    flex-basis: 0;
+}
+
+.grid-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.grid-cell {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(4, 22, 28, 0.72);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.32);
+    border-radius: 4px;
+}
+
+.grid-cell:hover {
+    background-color: rgba(20, 130, 150, 0.32);
+    border-color: rgba(80, 235, 255, 0.55);
+}
+
+.grid-cell-pending {
+    opacity: 0.45;
+}
+
+.grid-cell-selected {
+    background-color: rgba(80, 235, 255, 0.14);
+    border-color: var(--hud-accent);
+    border-width: 2px;
+}
+
+.grid-cell-icon {
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(20, 130, 150, 0.22);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.4);
+    border-radius: 28px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.grid-cell-fallback {
+    width: 100%;
+    height: 100%;
+    color: var(--hud-ink);
+    font-size: 15px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.grid-cell-qty {
+    position: absolute;
+    right: 3px;
+    bottom: 2px;
+    color: var(--hud-ink);
+    font-size: 11px;
+    -unity-font-style: bold;
+    padding: 1px 4px;
+    background-color: rgba(2, 7, 8, 0.88);
+    border-radius: 7px;
+}
+
+/* 장비창 위쪽의 장착 슬롯 줄. 슬롯 칸은 .grid-cell 스타일을 그대로 쓰고 크기만 키운다. */
+.equip-slot-row {
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 4px;
+    margin-bottom: 6px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(103, 178, 199, 0.28);
+}
+
+.equip-slot-label {
+    width: 56px;
+    color: var(--hud-muted);
+    font-size: 12px;
+}
+
+.equip-slot {
+    width: 96px;
+    height: 96px;
+    margin: 0 14px 0 4px;
+}
+
+.armor-slots {
+    flex-direction: row;
+    margin: 0 14px 0 4px;
+}
+
+.armor-slot {
+    width: 72px;
+    height: 72px;
+    margin-right: 6px;
+}
+
+.equip-slot-info {
+    flex-grow: 1;
+}
+
+.equip-slot-name {
+    color: var(--hud-ink);
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.equip-slot-detail {
+    color: var(--hud-muted);
+    font-size: 12px;
+    margin-top: 4px;
+    white-space: normal;
+}
+
+.equip-section-title {
+    color: var(--hud-muted);
+    font-size: 12px;
+    margin: 4px 4px 0 4px;
+}
+
+.build-tabs {
+    flex-direction: row;
+    margin-bottom: 8px;
+}
+
+.build-tab {
+    color: var(--hud-muted);
+    font-size: 12px;
+    padding: 4px 10px;
+    margin-right: 6px;
+    background-color: rgba(4, 22, 28, 0.68);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.32);
+    border-radius: 3px;
+}
+
+.build-tab:hover {
+    background-color: rgba(20, 130, 150, 0.42);
+}
+
+.build-tab-active {
+    color: var(--hud-ink);
+    background-color: rgba(80, 235, 255, 0.18);
+    border-color: var(--hud-accent);
+}
+
+/* 그리드 칸에 마우스를 올렸을 때 뜨는 상세 툴팁. 위치는 HudController가 포인터를 따라 갱신한다. */
+.hud-tooltip {
+    position: absolute;
+    max-width: 260px;
+    padding: 8px 10px;
+    background-color: rgba(2, 10, 14, 0.96);
+    border-width: 1px;
+    border-color: var(--hud-accent);
+    border-radius: 3px;
+}
+
+.tooltip-title {
+    color: var(--hud-ink);
+    font-size: 13px;
+    -unity-font-style: bold;
+    margin-bottom: 4px;
+    white-space: normal;
+}
+
+.tooltip-body {
+    color: var(--hud-muted);
+    font-size: 11px;
+    white-space: normal;
+}
+
+.reticle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 26px;
+    height: 26px;
+    margin-left: -13px;
+    margin-top: -13px;
+}
+
+/* 밝은 배경 위에서도 잘 보이도록 밝은 채움 + 짙은 외곽선(테두리)으로 대비를 준다 */
+.reticle-line {
+    position: absolute;
+    background-color: rgb(240, 253, 255);
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.85);
+}
+
+.reticle-line-top,
+.reticle-line-bottom {
+    left: 11px;
+    width: 4px;
+    height: 9px;
+}
+
+.reticle-line-top {
+    top: -1px;
+}
+
+.reticle-line-bottom {
+    bottom: -1px;
+}
+
+.reticle-line-left,
+.reticle-line-right {
+    top: 11px;
+    width: 9px;
+    height: 4px;
+}
+
+.reticle-line-left {
+    left: -1px;
+}
+
+.reticle-line-right {
+    right: -1px;
+}
+
+/* 명중 표시: 맞으면 조준점이 붉게 변하며 커지고, 머리면 노랗게(더 크게), 처치하면 오래 유지된다. */
+/* 조준점 오른쪽 아래의 탄약 표시다. 현재 탄창은 크게, 예비 탄약은 작고 흐리게 둔다.
+   평소에는 옅게 두고 조준·사격·재장전·탄약 부족일 때만 또렷하게 보인다. 총을 들었을 때만 켜진다. */
+.ammo-readout {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 26px;
+    margin-top: 14px;
+    flex-direction: row;
+    align-items: flex-end;
+    opacity: 0.4;
+    display: none;
+    transition-property: opacity;
+    transition-duration: 0.25s;
+}
+
+.ammo-active {
+    opacity: 1;
+}
+
+.ammo-mag {
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    -unity-font-style: bold;
+    color: rgb(235, 248, 252);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.ammo-reserve {
+    margin: 0 0 3px 6px;
+    padding: 0;
+    font-size: 14px;
+    color: rgba(200, 225, 235, 0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.95);
+}
+
+/* "재장전 중...", "탄약 없음" 같은 문구는 숫자보다 작게 보인다. */
+.ammo-text .ammo-mag {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.ammo-low .ammo-mag,
+.ammo-reloading .ammo-mag {
+    color: rgb(255, 200, 90);
+}
+
+.ammo-empty .ammo-mag {
+    color: rgb(255, 105, 95);
+}
+
+.reticle-hit {
+    scale: 1.35 1.35;
+}
+
+.reticle-hit .reticle-line,
+.reticle-hit .reticle-core {
+    background-color: rgb(255, 80, 70);
+}
+
+.reticle-head {
+    scale: 1.6 1.6;
+}
+
+.reticle-head .reticle-line,
+.reticle-head .reticle-core {
+    background-color: rgb(255, 214, 64);
+}
+
+.reticle-kill {
+    scale: 1.9 1.9;
+}
+
+.reticle-core {
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(240, 253, 255, 0.95);
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0.85);
+    border-radius: 50%;
+}
+
+/* 아이템을 주웠을 때 전투 패널 위에 잠깐 떠서 쌓이는 알림. 새 알림이 아래(전투 패널 쪽)에 붙는다. */
+.pickup-feed {
+    position: absolute;
+    right: 28px;
+    bottom: 218px;
+    width: 246px;
+    flex-direction: column-reverse;
+}
+
+.pickup-toast {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4px;
+    padding: 5px 10px;
+    background-color: var(--hud-surface);
+    border-width: 1px;
+    border-color: var(--hud-edge);
+    border-left-width: 3px;
+    border-left-color: var(--hud-accent);
+    border-radius: 3px;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+}
+
+.pickup-toast-ammo {
+    border-left-color: rgb(255, 196, 64);
+}
+
+.pickup-qty {
+    min-width: 46px;
+    color: var(--hud-ink);
+    font-size: 14px;
+    -unity-font-style: bold;
+}
+
+.pickup-name {
+    flex-grow: 1;
+    color: var(--hud-ink);
+    font-size: 13px;
+}
+
+.pickup-total {
+    color: var(--hud-muted);
+    font-size: 11px;
+}
+
+.control-hints {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    flex-direction: row;
+    translate: -50% 0;
+    padding: 6px 11px;
+    background-color: rgba(3, 14, 18, 0.76);
+    border-width: 1px;
+    border-color: rgba(70, 220, 255, 0.34);
+    border-radius: 3px;
+}
+
+.control-hint {
+    color: var(--hud-muted);
+    font-size: 13px;
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right-width: 1px;
+    border-right-color: rgba(70, 220, 255, 0.3);
+}
+
+.control-hint-last {
+    padding-right: 0;
+    margin-right: 0;
+    border-right-width: 0;
+}
+
+/* ---- HUD 요소별 숨기기(옵션) ---- */
+/* 코드가 display를 직접 바꾸는 요소가 많아 display 대신 visibility로 감춘다. 클래스는 HudController가 hud-root에 붙인다. */
+.hide-compass #compass-bar {
+    visibility: hidden;
+}
+
+.hide-clock #clock-label {
+    visibility: hidden;
+}
+
+.hide-survival #survivor-panel {
+    visibility: hidden;
+}
+
+.hide-reticle #reticle {
+    visibility: hidden;
+}
+
+.hide-ammo #ammo-readout {
+    visibility: hidden;
+}
+
+.hide-prompt #interact-prompt-row {
+    visibility: hidden;
+}
+
+.hide-pickup #pickup-feed {
+    visibility: hidden;
+}
+
+.hide-notices #struct-info-row,
+.hide-notices #build-notice-row {
+    visibility: hidden;
+}
+
+.hide-hints #control-hints {
+    visibility: hidden;
+}
+
+/* ---- 일시정지 메뉴와 옵션 창 ---- */
+.pause-host {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.pause-panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(2, 8, 12, 0.72);
+}
+
+.pause-window {
+    position: relative;
+    width: 520px;
+    padding: 22px 26px 24px 26px;
+    background-color: var(--hud-surface-soft);
+    border-width: 1px;
+    border-color: var(--hud-edge);
+    border-radius: 4px;
+}
+
+.pause-title {
+    color: var(--hud-ink);
+    font-size: 26px;
+    -unity-font-style: bold;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+.pause-main {
+    flex-direction: column;
+}
+
+.pause-button {
+    color: var(--hud-ink);
+    font-size: 16px;
+    height: 40px;
+    margin: 0 0 8px 0;
+    background-color: rgba(4, 22, 28, 0.72);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.4);
+    border-radius: 3px;
+    -unity-text-align: middle-center;
+}
+
+.pause-button:hover {
+    background-color: rgba(20, 130, 150, 0.4);
+    border-color: var(--hud-accent);
+}
+
+.pause-button-danger:hover {
+    background-color: rgba(190, 50, 60, 0.45);
+    border-color: rgb(255, 110, 110);
+}
+
+.pause-button-small {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin-right: 8px;
+}
+
+.pause-note {
+    color: var(--hud-muted);
+    font-size: 13px;
+    margin-top: 4px;
+    min-height: 18px;
+}
+
+.options-view {
+    flex-direction: column;
+}
+
+.options-tabs {
+    flex-direction: row;
+    margin-bottom: 12px;
+}
+
+.options-tab {
+    color: var(--hud-muted);
+    font-size: 14px;
+    padding: 6px 18px;
+    margin: 0 6px 0 0;
+    background-color: rgba(4, 22, 28, 0.68);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.32);
+    border-radius: 3px;
+}
+
+.options-tab:hover {
+    background-color: rgba(20, 130, 150, 0.42);
+}
+
+.options-tab-active {
+    color: var(--hud-ink);
+    background-color: rgba(80, 235, 255, 0.18);
+    border-color: var(--hud-accent);
+}
+
+.options-page {
+    flex-direction: column;
+    min-height: 250px;
+}
+
+.options-row {
+    margin: 6px 0;
+}
+
+.options-row > Label {
+    color: var(--hud-ink);
+    font-size: 14px;
+    min-width: 150px;
+}
+
+.options-footer {
+    flex-direction: row;
+    margin-top: 14px;
+}
+
+.keys-hint {
+    color: var(--hud-muted);
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.keys-list {
+    height: 240px;
+}
+
+.keys-group {
+    color: var(--hud-accent);
+    font-size: 12px;
+    -unity-font-style: bold;
+    letter-spacing: 1.2px;
+    margin: 8px 0 3px 0;
+}
+
+.key-row {
+    flex-direction: row;
+    align-items: center;
+    margin: 2px 0;
+}
+
+.key-row-label {
+    flex-grow: 1;
+    color: var(--hud-ink);
+    font-size: 14px;
+}
+
+.key-row-button {
+    width: 150px;
+    height: 26px;
+    margin: 0;
+    color: var(--hud-ink);
+    font-size: 13px;
+    background-color: rgba(4, 22, 28, 0.72);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.4);
+    border-radius: 3px;
+}
+
+.key-row-button:hover {
+    background-color: rgba(20, 130, 150, 0.4);
+    border-color: var(--hud-accent);
+}
+
+.key-row-button-listening {
+    color: rgb(255, 220, 120);
+    border-color: rgb(255, 200, 80);
+    background-color: rgba(120, 90, 10, 0.35);
+}
+
+/* ---- 스크롤바와 슬라이더를 HUD 테마(청록 홀로그램)에 맞춘다 ---- */
+.unity-scroller {
+    background-color: transparent;
+    border-width: 0;
+}
+
+.unity-scroller--vertical {
+    width: 10px;
+    margin-left: 4px;
+}
+
+.unity-scroller--horizontal {
+    height: 10px;
+}
+
+.unity-scroller__low-button,
+.unity-scroller__high-button {
+    display: none;
+}
+
+.unity-scroller .unity-base-slider__tracker {
+    background-color: rgba(4, 22, 28, 0.7);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.28);
+    border-radius: 5px;
+}
+
+.unity-scroller .unity-base-slider__dragger {
+    background-color: rgba(80, 235, 255, 0.4);
+    border-width: 1px;
+    border-color: rgba(80, 235, 255, 0.75);
+    border-radius: 5px;
+}
+
+.unity-scroller .unity-base-slider__dragger:hover {
+    background-color: rgba(80, 235, 255, 0.62);
+}
+
+.options-row .unity-base-slider__tracker {
+    height: 4px;
+    background-color: rgba(4, 22, 28, 0.85);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.4);
+    border-radius: 2px;
+}
+
+.options-row .unity-base-slider__dragger {
+    width: 14px;
+    height: 14px;
+    background-color: var(--hud-accent);
+    border-width: 0;
+    border-radius: 7px;
+}
+
+.options-row .unity-base-slider__dragger:hover {
+    background-color: rgb(190, 250, 255);
+}
+
+.options-row .unity-base-slider__dragger-border {
+    display: none;
+}
+
+.options-row .unity-base-field__input,
+.options-row .unity-base-popup-field__input,
+.options-row .unity-integer-field__input,
+.options-row .unity-float-field__input {
+    color: var(--hud-ink);
+    background-color: rgba(4, 22, 28, 0.72);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.4);
+    border-radius: 3px;
+}
+
+.options-row .unity-toggle__checkmark {
+    background-color: rgba(4, 22, 28, 0.72);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.5);
+    border-radius: 3px;
+}
+
+.options-row .unity-toggle__input:checked .unity-toggle__checkmark {
+    background-color: var(--hud-accent);
+}
+
+/* 안쪽 슬라이더가 기본 폭(24px)으로 바깥 스크롤바(10px)를 넘치지 않게 맞춘다 */
+.unity-scroller--vertical .unity-scroller__slider,
+.unity-scroller--vertical .unity-base-slider__input,
+.unity-scroller--vertical .unity-base-slider__drag-container,
+.unity-scroller--vertical .unity-base-slider__tracker,
+.unity-scroller--vertical .unity-base-slider__dragger {
+    width: 10px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.unity-scroller--horizontal .unity-scroller__slider,
+.unity-scroller--horizontal .unity-base-slider__input,
+.unity-scroller--horizontal .unity-base-slider__drag-container,
+.unity-scroller--horizontal .unity-base-slider__tracker,
+.unity-scroller--horizontal .unity-base-slider__dragger {
+    height: 10px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---- 인벤토리 아이템 메뉴(사용/버리기) ---- */
+.item-menu {
+    position: absolute;
+    width: 170px;
+    padding: 8px;
+    background-color: rgba(3, 16, 22, 0.94);
+    border-width: 1px;
+    border-color: var(--hud-accent);
+    border-radius: 4px;
+}
+
+.item-menu-title {
+    color: var(--hud-ink);
+    font-size: 13px;
+    -unity-font-style: bold;
+    margin-bottom: 6px;
+    white-space: normal;
+}
+
+.item-menu-button {
+    color: var(--hud-ink);
+    font-size: 14px;
+    height: 30px;
+    margin: 0 0 4px 0;
+    background-color: rgba(4, 22, 28, 0.72);
+    border-width: 1px;
+    border-color: rgba(103, 178, 199, 0.4);
+    border-radius: 3px;
+    -unity-text-align: middle-center;
+}
+
+.item-menu-button:hover {
+    background-color: rgba(20, 130, 150, 0.4);
+    border-color: var(--hud-accent);
+}
+
+.item-menu-button:disabled {
+    color: rgba(122, 196, 216, 0.4);
+    border-color: rgba(103, 178, 199, 0.2);
+}
+
+.item-menu-button-danger:hover {
+    background-color: rgba(190, 50, 60, 0.45);
+    border-color: rgb(255, 110, 110);
+}

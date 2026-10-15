@@ -1,0 +1,179 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Template name="PausePanel" src="project://database/Assets/_Project/UI/UXML/PausePanel.uxml" />
+    <Style src="project://database/Assets/_Project/UI/USS/Hud.uss" />
+    <ui:VisualElement name="hud-root" class="hud-root" picking-mode="Ignore">
+        <ui:VisualElement name="compass-bar" class="compass-bar">
+            <ui:VisualElement name="compass-viewport" class="compass-viewport">
+                <ui:VisualElement name="compass-strip" class="compass-strip" />
+            </ui:VisualElement>
+            <ui:VisualElement class="compass-pointer" />
+        </ui:VisualElement>
+        <ui:Label name="clock-label" text="" class="clock-label" picking-mode="Ignore" />
+        <ui:VisualElement name="interact-prompt-row" class="interact-prompt-row" picking-mode="Ignore">
+            <ui:Label name="interact-prompt" text="" class="interact-prompt" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="struct-info-row" class="struct-info-row" picking-mode="Ignore">
+            <ui:VisualElement class="struct-info" picking-mode="Ignore">
+                <ui:Label name="struct-info-title" text="" class="struct-info-title" picking-mode="Ignore" />
+                <ui:VisualElement class="struct-bar" picking-mode="Ignore">
+                    <ui:VisualElement name="struct-bar-fill" class="struct-bar-fill" picking-mode="Ignore" />
+                </ui:VisualElement>
+                <ui:Label name="struct-info-hint" text="" class="struct-info-hint" picking-mode="Ignore" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="build-notice-row" class="build-notice-row" picking-mode="Ignore">
+            <ui:Label name="build-notice" text="" class="build-notice" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="survivor-panel" class="survivor-panel">
+            <ui:VisualElement class="survivor-card team-card-player">
+                <ui:VisualElement class="survivor-emblem">
+                    <ui:Label text="S" class="survivor-emblem-text" />
+                </ui:VisualElement>
+                <ui:VisualElement class="survivor-details">
+                    <ui:VisualElement class="survivor-name-row">
+                        <ui:Label text="생존자" class="survivor-name" />
+                        <ui:Label text="SOLO" class="solo-badge" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="health-progress" class="health-progress">
+                        <ui:VisualElement name="health-progress-fill" class="health-progress-fill" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="health-readout-row">
+                        <ui:Label text="체력" class="health-caption" />
+                        <ui:Label name="health-label" text="100 / 100" class="health-label" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stat-row">
+                        <ui:Label text="허기" class="stat-caption" />
+                        <ui:VisualElement class="stat-track"><ui:VisualElement name="hunger-fill" class="stat-fill stat-fill-hunger" /></ui:VisualElement>
+                        <ui:Label name="hunger-label" text="100" class="stat-value" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="stat-row">
+                        <ui:Label text="갈증" class="stat-caption" />
+                        <ui:VisualElement class="stat-track"><ui:VisualElement name="thirst-fill" class="stat-fill stat-fill-thirst" /></ui:VisualElement>
+                        <ui:Label name="thirst-label" text="100" class="stat-value" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="inventory-panel" class="utility-panel center-panel">
+            <ui:VisualElement class="utility-heading">
+                <ui:Label text="인벤토리" class="utility-title" />
+                <ui:Label text="Tab" class="keycap" />
+            </ui:VisualElement>
+            <ui:ScrollView class="grid-scroll">
+                <ui:VisualElement name="inventory-grid" class="grid-container" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="crafting-panel" class="utility-panel center-panel">
+            <ui:VisualElement class="utility-heading">
+                <ui:Label text="제작" class="utility-title" />
+                <ui:Label text="C" class="keycap" />
+            </ui:VisualElement>
+            <ui:ScrollView class="grid-scroll">
+                <ui:VisualElement name="crafting-grid" class="grid-container" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="equipment-panel" class="utility-panel center-panel">
+            <ui:VisualElement class="utility-heading">
+                <ui:Label text="장비" class="utility-title" />
+                <ui:Label text="V" class="keycap" />
+            </ui:VisualElement>
+            <ui:VisualElement class="equip-slot-row">
+                <ui:Label text="주무기" class="equip-slot-label" />
+                <ui:VisualElement name="equipment-slot" class="grid-cell equip-slot" />
+                <ui:VisualElement class="equip-slot-info">
+                    <ui:Label name="equipment-slot-name" text="맨손" class="equip-slot-name" />
+                    <ui:Label name="equipment-slot-detail" text="보유한 총을 아래에서 선택해 장착한다" class="equip-slot-detail" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="equip-slot-row">
+                <ui:Label text="방어구" class="equip-slot-label" />
+                <ui:VisualElement name="armor-slots" class="armor-slots" />
+                <ui:VisualElement class="equip-slot-info">
+                    <ui:Label name="armor-summary" text="피해 감소 0%" class="equip-slot-name" />
+                    <ui:Label text="칸이나 아래 방어구를 눌러 장착/해제" class="equip-slot-detail" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Label text="보유한 무기와 방어구" class="equip-section-title" />
+            <ui:ScrollView class="grid-scroll">
+                <ui:VisualElement name="equipment-grid" class="grid-container" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="storage-panel" class="utility-panel center-panel storage-panel">
+            <ui:VisualElement class="utility-heading">
+                <ui:Label name="storage-title" text="보관함" class="utility-title" />
+                <ui:Button name="storage-take-all" text="모두 가져오기" class="build-tab storage-take-all" />
+                <ui:Label text="Esc" class="keycap" />
+            </ui:VisualElement>
+            <ui:Label name="storage-contents-title" text="보관함" class="equip-section-title" />
+            <ui:ScrollView class="grid-scroll storage-scroll">
+                <ui:VisualElement name="storage-grid" class="grid-container" />
+            </ui:ScrollView>
+            <ui:Label text="내 인벤토리  (클릭: 한 묶음 · Shift+클릭: 1개)" class="equip-section-title" />
+            <ui:ScrollView class="grid-scroll storage-scroll">
+                <ui:VisualElement name="storage-inventory-grid" class="grid-container" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="build-panel" class="utility-panel center-panel">
+            <ui:VisualElement class="utility-heading">
+                <ui:Label text="건축" class="utility-title" />
+                <ui:Label text="B" class="keycap" />
+            </ui:VisualElement>
+            <ui:VisualElement name="build-tabs" class="build-tabs" />
+            <ui:ScrollView class="grid-scroll">
+                <ui:VisualElement name="build-grid" class="grid-container" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="hud-tooltip" class="hud-tooltip" picking-mode="Ignore">
+            <ui:Label name="tooltip-title" class="tooltip-title" />
+            <ui:Label name="tooltip-body" class="tooltip-body" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="reticle" class="reticle" picking-mode="Ignore">
+            <ui:VisualElement class="reticle-line reticle-line-top" picking-mode="Ignore" />
+            <ui:VisualElement class="reticle-line reticle-line-right" picking-mode="Ignore" />
+            <ui:VisualElement class="reticle-line reticle-line-bottom" picking-mode="Ignore" />
+            <ui:VisualElement class="reticle-line reticle-line-left" picking-mode="Ignore" />
+            <ui:VisualElement class="reticle-core" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="ammo-readout" class="ammo-readout" picking-mode="Ignore">
+            <ui:Label name="ammo-mag" text="" class="ammo-mag" picking-mode="Ignore" />
+            <ui:Label name="ammo-reserve" text="" class="ammo-reserve" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="pickup-feed" class="pickup-feed" picking-mode="Ignore" />
+
+        <ui:VisualElement name="death-banner" class="death-banner" picking-mode="Ignore">
+            <ui:Label text="사망했습니다" class="death-banner-text" picking-mode="Ignore" />
+            <ui:Label name="death-hint" text="" class="death-banner-hint" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="item-menu" class="item-menu">
+            <ui:Label name="item-menu-title" text="" class="item-menu-title" />
+            <ui:Button name="item-menu-use" text="사용" class="item-menu-button" />
+            <ui:Button name="item-menu-drop-one" text="1개 버리기" class="item-menu-button" />
+            <ui:Button name="item-menu-drop-all" text="모두 버리기" class="item-menu-button item-menu-button-danger" />
+        </ui:VisualElement>
+
+        <ui:Instance template="PausePanel" name="pause-host" class="pause-host" picking-mode="Ignore" />
+
+        <ui:VisualElement name="control-hints" class="control-hints">
+            <ui:Label text="Shift 달리기" class="control-hint" />
+            <ui:Label text="Esc 닫기 · 취소 · 메뉴" class="control-hint" />
+            <ui:Label text="Tab 인벤토리" class="control-hint" />
+            <ui:Label text="C 제작" class="control-hint" />
+            <ui:Label text="V 장비" class="control-hint" />
+            <ui:Label text="H 무기" class="control-hint" />
+            <ui:Label text="B 건축" class="control-hint" />
+            <ui:Label text="L 랜턴" class="control-hint" />
+            <ui:Label text="E 길게 상호작용" class="control-hint" />
+            <ui:Label text="F5 저장 · F9 불러오기" class="control-hint" />
+            <ui:Label text="Q / E 회전 · R / F 층 · X 철거" class="control-hint control-hint-last" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

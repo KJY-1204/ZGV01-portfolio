@@ -1,0 +1,47 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Template name="PausePanel" src="project://database/Assets/_Project/UI/UXML/PausePanel.uxml" />
+    <Style src="project://database/Assets/_Project/UI/USS/Hud.uss" />
+    <Style src="project://database/Assets/_Project/UI/USS/MainMenu.uss" />
+    <ui:VisualElement name="menu-root" class="menu-root">
+        <ui:VisualElement class="menu-stripe" picking-mode="Ignore" />
+        <ui:VisualElement name="menu-column" class="menu-column">
+            <ui:VisualElement name="menu-logo" class="menu-logo" picking-mode="Ignore" />
+            <ui:Label text="ZOMBIE SURVIVAL  /  좀비 생존" class="section-kicker" />
+            <ui:Label name="menu-title" text="ZGV01" class="menu-title" />
+            <ui:Label text="탐험하고, 파밍하고, 살아남아 거점을 세운다" class="menu-tagline" />
+            <ui:Button name="menu-continue" text="이어하기" class="pause-button menu-button" />
+            <ui:Button name="menu-new" text="새 게임" class="pause-button menu-button" />
+            <ui:Button name="menu-multi" text="멀티플레이" class="pause-button menu-button" />
+            <ui:Button name="menu-options" text="옵션" class="pause-button menu-button" />
+            <ui:Button name="menu-quit" text="게임 종료" class="pause-button pause-button-danger menu-button" />
+            <ui:Label name="menu-note" text="" class="pause-note" />
+        </ui:VisualElement>
+        <ui:VisualElement name="slot-panel" class="pause-panel">
+            <ui:VisualElement class="pause-window">
+                <ui:Label name="slot-kicker" text="SAVE SLOT  /  저장 슬롯" class="section-kicker" />
+                <ui:Label name="slot-title" text="슬롯 선택" class="pause-title" />
+                <ui:Button name="slot-1" text="" class="pause-button slot-button" />
+                <ui:Button name="slot-2" text="" class="pause-button slot-button" />
+                <ui:Button name="slot-3" text="" class="pause-button slot-button" />
+                <ui:Button name="slot-source" text="" class="pause-button" />
+                <ui:Label name="slot-note" text="" class="pause-note" />
+                <ui:Button name="slot-back" text="뒤로" class="pause-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="multi-panel" class="pause-panel">
+            <ui:VisualElement class="pause-window">
+                <ui:Label text="MULTIPLAYER  /  멀티플레이" class="section-kicker" />
+                <ui:Label text="멀티플레이" class="pause-title" />
+                <ui:Button name="multi-host" text="호스트로 시작 (슬롯 고르기)" class="pause-button" />
+                <ui:Label name="multi-address" text="" class="pause-note" />
+                <ui:TextField name="multi-ip" label="접속 주소" value="127.0.0.1" class="options-row" />
+                <ui:TextField name="multi-port" label="포트" value="7777" class="options-row" />
+                <ui:Button name="multi-join" text="참가하기" class="pause-button" />
+                <ui:Label name="multi-status" text="" class="pause-note" />
+                <ui:Button name="multi-back" text="뒤로" class="pause-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label name="menu-version" text="" class="menu-version" picking-mode="Ignore" />
+        <ui:Instance template="PausePanel" name="pause-host" class="pause-host" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>
